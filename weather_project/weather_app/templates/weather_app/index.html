@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список записей о погоде</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Список записей о погоде</h1>
+        <a class="btn btn-primary mb-3" href="{% url 'add_entry' %}">Добавить запись</a> 
+        {% if weather_short %}
+            {% for entry in weather_short %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ entry.location }}</h2>
+                        <p class="card-text">Температура: {{ entry.temperature }}°C</p>
+                        <p class="card-text">Дата наблюдения: {{ entry.date }}</p>
+                        {% comment %} <p class="card-text">Влажность воздуха: {{ entry.air_humidity }}</p> 
+                        <p class="card-text">Давление воздуха: {{ entry.atmospheric_pressure }}</p>
+                        <p class="card-text">Описание: {{ entry.description }}</p> {% endcomment %}
+                        <a href="{% url 'entry_detail' entry.id %}" class="btn btn-info">Подробнее</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет записей о погоде.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

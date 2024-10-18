@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали записи о погоде</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Детали записи о погоде</h1>
+    <p><strong>Локация:</strong> {{ entry.location }}</p>
+    <p><strong>Температура:</strong> {{ entry.temperature }}°C</p>
+    <p><strong>Дата наблюдения:</strong> {{ entry.date }}</p>
+    <p><strong>Влажность воздуха:</strong> {{ entry.air_humidity }}</p>
+    <p><strong>Давление воздуха:</strong> {{ entry.atmospheric_pressure }}</p>
+    <p><strong>Описание:</strong> {{ entry.description }}</p>
+    <a href="{% url 'index' %}">Назад к записям</a>
+</body>
+</html>
